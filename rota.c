@@ -38,14 +38,14 @@ static inline uint32_t roll32(uint32_t word, unsigned int shift)
 
 static inline uint32_t rotate_right (uint32_t u, size_t r)
 {
-    __asm__ ("rorl %%cl, %0" : "+r" (u) : "c" (r));
+    __asm__ volatile("rorl %%cl, %0" : "+r" (u) : "c" (r));
     return u;
 }
 
 
 static inline uint32_t rotate_left (uint32_t u, size_t r)
 {
-    __asm__ ("roll %%cl, %0" : "+r" (u) : "c" (r));
+    __asm__  volatile("roll %%cl, %0" : "+r" (u) : "c" (r));
     return u;
 }
 
